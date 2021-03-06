@@ -33,8 +33,8 @@ class MyClient(discord.Client):
         message.content = message.content[len(self.PREFIX):]
 
         # Admin only commands
-        if self.ADMINS.count(str(message.author)):
-            await self.adminCommandHandler.run(message)
+        #if self.ADMINS.count(str(message.author)):
+        #    await self.adminCommandHandler.run(message)
 
         # Commands for everybody
         await self.commandHandler.run(message)

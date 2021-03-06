@@ -1,4 +1,5 @@
 .env
+SoundBoard/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
