@@ -37,6 +37,3 @@ class MyClient(discord.Client):
             if self.ADMINS.count(str(message.author)):
                 message.content = message.content[len(self.ADMINPREFIX):]       # Remove prefix from the command
                 await self.adminCommandHandler.run(message)                     # Execute command
-
-        self.commandHandler.print()
-        self.adminCommandHandler.print()

@@ -9,7 +9,7 @@ class InsiroPictureCommand(BaseCommand):
         await message.channel.send(file=discord.File('Temp/inspiro.jpg'))
 
     async def help(self):
-        return 'quote : Generates a inspirobot quote.'
+        return ': Generates a inspirobot quote.'
 
 # Downloads a InspiroBot Xmas picture quote and sends it in the text channel
 class InsiroPictureXMasCommand(BaseCommand):
@@ -18,7 +18,7 @@ class InsiroPictureXMasCommand(BaseCommand):
         await message.channel.send(file=discord.File('Temp/inspiroXmas.jpg'))
 
     async def help(self):
-        return 'quoteXmas : Generates a festive inspirobot quote.'
+        return ': Generates a festive inspirobot quote.'
 
 # Downloads a InsiroBot music quote and sends it in the voice channel
 class InsiroMusicCommand(BaseCommand):
@@ -27,4 +27,4 @@ class InsiroMusicCommand(BaseCommand):
         await sendLocalMP3(message, 'Temp/inspiro.mp3')
 
     async def help(self):
-        return 'quotem : Generates a inspirobot audio quote.'
+        return ': Generates a inspirobot audio quote.'

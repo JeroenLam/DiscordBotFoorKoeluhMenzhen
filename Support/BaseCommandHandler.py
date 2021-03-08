@@ -16,6 +16,9 @@ class BaseCommandHandler:
         argv = message.content.split(' ')
         command = argv[0].lower()
 
+        # Remove command from the input string and remove leading whitespaces
+        message.content = message.content[len(command):].lstrip()
+
         com = BaseCommand()
         # Attempt to run the command from the list of commands
         try:

@@ -13,17 +13,17 @@ Currently the bot supports the following commands \
 `quotexmas` Generates a festive inspirobot quote (image). \
 `quotem` Generates a inspirobot audio quote. \
 `sb <name | list>` Plays the audio file <name>.mp3. Will return a list of all available files when used with list. \
+`tts <text>` Tim-to-speech, converts text to audio in the current channel in a dutch voice. \
+`tts2 <language> <text>` Text-to-speech, converts text to audio in the current channel in a `<language>` voice.
+`tttt <language> <text>` Translates 2 a language of your choise to text, e.g. nl, en, es, ja, ru. \
+`ttts <language> <text>` Translates 2 a language of your choise to voice, e.g. nl, en, es, ja, ru. \
 
 Features that are currently being worked on (mainly based on features that where implemented in the old bot) \
 `help` Shows a list of all commands and their descriptions based on the data specified in each command object. \
-`2<language> <text>` Translates 2 a language of your choise to text, e.g. nl, en, es, ja, ru. \
-`3<language> <text>` Translates 2 a language of your choise to voice, e.g. nl, en, es, ja, ru. \
 `<....` Some way to use discord emoticons as commands \
 `reddit [hot, new, topH, topD, topW, topM, topY, topA] <subreddit>` Random post from the 25 most recent [catagory] posts. \
 `pause` Pauses the audio stream of the bot. \
 `stop` Stops the audio stream of the bot. \
-`tts <text>` Tim-to-speech, converts text to audio in the current channel in a dutch voice. \
-`tts2 <language> <text>` Text-to-speech, converts text to audio in the current channel in a <language> voice. \
   
 ## Features (admins)
 Currently there are no administrative commands added to the bot. However in the following functions are being worked on: \

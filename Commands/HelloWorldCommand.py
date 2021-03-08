@@ -5,4 +5,4 @@ class HelloWorldCommand(BaseCommand):
         await message.channel.send('Hello World!')
 
     async def help(self):
-        return 'hw : Hello world command.'
+        return ': Hello world command.'
