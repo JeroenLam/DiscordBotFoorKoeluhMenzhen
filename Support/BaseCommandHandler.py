@@ -33,11 +33,11 @@ class BaseCommandHandler:
         try:
             com = self.commands[command]
         except:
-            print('ERROR: Invalid command ' + str(message.author) + ' - ' + message.content)
+            print('ERROR: Invalid command ' + str(message.author) + ' - ' + command + ' - ' + message.content)
             return
 
         await com.execute(message)
-        print('  executed ' + str(message.author) + ' - ' + message.content)
+        print('  executed ' + str(message.author) + ' - ' + command + ' - ' + message.content)
 
     # Prints the content of the commandhandler, used for debugging
     def print(self):
