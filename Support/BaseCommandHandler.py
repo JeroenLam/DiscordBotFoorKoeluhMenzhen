@@ -19,6 +19,15 @@ class BaseCommandHandler:
         # Remove command from the input string and remove leading whitespaces
         message.content = message.content[len(command):].lstrip()
 
+        # If command == help, send all commands and their descriptions to the user
+        if command == 'help':
+            retMessage = '```\n'
+            for com_name in self.commands:
+                retMessage += f'{com_name}: {self.commands[com_name].help()}\n'
+            retMessage += '```'
+            await message.author.send(retMessage)
+            return
+
         com = BaseCommand()
         # Attempt to run the command from the list of commands
         try:

@@ -17,5 +17,5 @@ class SoundBoardCommand(BaseCommand):
         else:
             await sendLocalMP3(message, 'SoundBoard/' + argv[0] + '.mp3')
 
-    async def help(self):
+    def help(self):
         return '<name | list> : Plays the audio file <name>.mp3. Will return a list of all available files when used with list.'
