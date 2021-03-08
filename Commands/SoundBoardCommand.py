@@ -10,9 +10,10 @@ class SoundBoardCommand(BaseCommand):
         # Send a list of all files when the first term is list
         if argv[0] == 'list':
             for root, dirs, files in os.walk('SoundBoard'):
-                retMessage = ''
+                retMessage = '```\n'
                 for name in files:
-                    retMessage += name + '\n'
+                    retMessage += name[:-4] + '\n'
+                retMessage += '```'
             await message.author.send(retMessage) 
         else:
             await sendLocalMP3(message, 'SoundBoard/' + argv[0] + '.mp3')
