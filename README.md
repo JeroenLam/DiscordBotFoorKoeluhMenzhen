@@ -17,7 +17,7 @@ To remove functionality from the bot or if you want to change the command names 
 If you wish to add your own functions to the bot, then derive a new command class from `BaseCommand` (located in `Support/BaseCommand`) and overwrite the corresponding functions. Also do not forget to include the newly created command in the corresponding command handler.
 
 ## Features (everyone)
-Currently the bot supports the following commands \
+Currently the bot supports the following commands:
 
 #### HelloWorldCommand.py
 `hw` Send 'Hello World!' back to the user 
@@ -40,16 +40,21 @@ Dependencies: `googletrans`, `gtts` \
 `ttts <language> <text>` Translates 2 a language of your choise to voice, e.g. nl, en, es, ja, ru. \
 
 Features that are currently being worked on (mainly based on features that where implemented in the old bot) \
-- [ ] `help` Shows a list of all commands and their descriptions based on the data specified in each command object. \
+- [x] `help` Shows a list of all commands and their descriptions based on the data specified in each command object. \
 - [ ] `<....` Some way to use discord emoticons as commands \
 - [ ] `reddit [hot, new, topH, topD, topW, topM, topY, topA] <subreddit>` Random post from the 25 most recent [catagory] posts. \
 - [ ] `pause` Pauses the audio stream of the bot. \
 - [ ] `stop` Stops the audio stream of the bot. 
   
 ## Features (admins)
-Currently there are no administrative commands added to the bot. However in the following functions are being worked on: \
-- [x] Using a seperate prefix for admin commands to make it easier to distinguish between commands for users and admins. \
-- [ ] `sb <add | remove | rm>` Add or remove audio from the soundboard without having acces to the server directly. 
+Currently the bot supports the following commands:
+
+#### AdminSoundBoardCommands.py
+This is the admin interface that corresponds with the `SoundBoardCommand.py` functions. It supports the following commands:
+`sbadd <attached file.mp3>` Adds the `<file>.mp3` to the soundboard folder. \
+`sbrm <fileName_1> ... <fileName_N>` Remove `<fileName_i>.mp3` from the soundboard folder. \
+`sbmv <fileName_old> <fileName_new>` Renames `<fileName_old>.mp3` to `<fileName_new>.mp3`.
+
 
 ### Future feature ideas
 A ticketing system for non admins to add to ask questions which are stored in the bot until resolved. The tickets can then be send to the moderators or be pushed into a specific channel that might be set via a command. The admins will have the option to resolve the question which will remove it from the list (and possibly delete the original message). \
