@@ -14,7 +14,7 @@ Currently the bot supports the following commands \
 `quotem` Generates a inspirobot audio quote. \
 `sb <name | list>` Plays the audio file <name>.mp3. Will return a list of all available files when used with list. \
 `tts <text>` Tim-to-speech, converts text to audio in the current channel in a dutch voice. \
-`tts2 <language> <text>` Text-to-speech, converts text to audio in the current channel in a `<language>` voice.
+`tts2 <language> <text>` Text-to-speech, converts text to audio in the current channel in a `<language>` voice. \
 `tttt <language> <text>` Translates 2 a language of your choise to text, e.g. nl, en, es, ja, ru. \
 `ttts <language> <text>` Translates 2 a language of your choise to voice, e.g. nl, en, es, ja, ru. \
 
