@@ -1,5 +1,4 @@
 import discord
-from gtts import gTTS
 
 # Connect to the voice channel
 async def connect2vc(message):
@@ -37,9 +36,3 @@ def pauseVoice(message):
         voice.resume()
     else:
         voice.pause()
-
-# Converts text to speach and sends it to the caller
-async def sendTTS(message, text, language='en'):
-    sound = gTTS(text=text, lang=language, slow=False)
-    sound.save("tts.mp3") 
-    await sendLocalMP3(message, 'tts.mp3')
