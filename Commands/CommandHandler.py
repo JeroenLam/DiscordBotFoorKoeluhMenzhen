@@ -1,29 +1,16 @@
-# Include all other commands
-from BaseCommand import *
+from BaseCommandHandler import *
+
+# Importing commands
 from HelloWorldCommand import *
 from SoundBoardCommand import *
 from InspiroCommands import *
 
-class CommandHandler:
-    commands = {'hw' : HelloWorldCommand(),
-                'sb' : SoundBoardCommand(),
-                'quote' : InsiroPictureCommand(),
-                'quotexmas' : InsiroPictureXMasCommand(),
-                'quotem' : InsiroMusicCommand()}
-
-
-    async def run(self, message):
-        # Tokenize message to get first entry
-        argv = message.content.split(' ')
-        command = argv[0].lower()
-
-        com = BaseCommand()
-        # Attempt to run the command from the list of commands
-        try:
-            com = self.commands[command]
-        except:
-            print('ERROR: Invalid command ' + str(message.author) + ' - ' + message.content)
-            return
-
-        await com.execute(message)
-        print('  executed ' + str(message.author) + ' - ' + message.content)
+class CommandHandler(BaseCommandHandler):
+    # On initialisation, define all commands in the command handler
+    def __init__(self):
+        BaseCommandHandler.__init__(self)
+        self.addCommand('hw', HelloWorldCommand())
+        self.addCommand('sb', SoundBoardCommand())
+        self.addCommand('quote', InsiroPictureCommand())
+        self.addCommand('quotexmas', InsiroPictureXMasCommand())
+        self.addCommand('quotem', InsiroMusicCommand())

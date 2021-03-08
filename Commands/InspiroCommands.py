@@ -1,9 +1,6 @@
 from BaseCommand import *
-import sys
-sys.path.append('Support')
 from getInpiro import *
 from VoiceCommands import *
-import discord
 
 # Downloads a InspiroBot picture quote and sends it in the text channel
 class InsiroPictureCommand(BaseCommand):

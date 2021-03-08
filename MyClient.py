@@ -1,5 +1,6 @@
 import sys                          # Used to include subdirectories to path
 import discord                      # Include the discord.py[voice] library
+sys.path.append('Support')          # Include support functions to active path
 sys.path.append('Commands')
 from CommandHandler import *        # Add command handler to the path and main file
 sys.path.append('AdminCommands')
@@ -11,6 +12,7 @@ class MyClient(discord.Client):
     # Import prefix and admins from .env
     load_dotenv()
     PREFIX = os.getenv('PREFIX')
+    ADMINPREFIX = os.getenv('ADMINPREFIX')
     ADMINS = os.getenv('ADMINS').split(',')
 
     # Import the command handler used to execute the command
@@ -25,16 +27,16 @@ class MyClient(discord.Client):
         if message.author == self.user:
             return
 
-        # Filter messages without the prefix
-        if message.content.find(self.PREFIX) != 0:
-            return
+        # Filter messages with normal user prefix
+        if message.content.find(self.PREFIX) == 0:
+            message.content = message.content[len(self.PREFIX):]                # Remove prefix from the command
+            await self.commandHandler.run(message)                              # Execute command
 
-        # Remove prefix from the command
-        message.content = message.content[len(self.PREFIX):]
+        # Filter messages with admin user prefix and the user is an admin
+        if message.content.find(self.ADMINPREFIX) == 0:
+            if self.ADMINS.count(str(message.author)):
+                message.content = message.content[len(self.ADMINPREFIX):]       # Remove prefix from the command
+                await self.adminCommandHandler.run(message)                     # Execute command
 
-        # Admin only commands
-        #if self.ADMINS.count(str(message.author)):
-        #    await self.adminCommandHandler.run(message)
-
-        # Commands for everybody
-        await self.commandHandler.run(message)
+        self.commandHandler.print()
+        self.adminCommandHandler.print()

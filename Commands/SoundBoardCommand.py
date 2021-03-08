@@ -1,7 +1,5 @@
 from BaseCommand import *
-import sys
 import os
-sys.path.append('Support')
 from VoiceCommands import *
 
 class SoundBoardCommand(BaseCommand):

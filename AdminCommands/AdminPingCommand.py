@@ -1,5 +1,5 @@
-from AdminBaseCommand import *
+from BaseCommand import *
 
-class AdminPingCommand(AdminBaseCommand):
+class AdminPingCommand(BaseCommand):
     async def execute(self, message):
         await message.channel.send('Pong!')

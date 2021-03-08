@@ -1,5 +1,5 @@
-from AdminBaseCommand import *
+from BaseCommand import *
 
-class AdminHelloWorldCommand(AdminBaseCommand):
+class AdminHelloWorldCommand(BaseCommand):
     async def execute(self, message):
         await message.channel.send('Hello World! (admin version :p)')
