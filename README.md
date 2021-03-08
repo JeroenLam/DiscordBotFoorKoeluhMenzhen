@@ -29,3 +29,7 @@ Features that are currently being worked on (mainly based on features that where
 Currently there are no administrative commands added to the bot. However in the following functions are being worked on: \
 Using a seperate prefix for admin commands to make it easier to distinguish between commands for users and admins. \
 `sb <add | remove | rm>` Add or remove audio from the soundboard without having acces to the server directly. \
+
+### Future feature ideas
+A ticketing system for non admins to add to ask questions which are stored in the bot until resolved. The tickets can then be send to the moderators or be pushed into a specific channel that might be set via a command. The admins will have the option to resolve the question which will remove it from the list (and possibly delete the original message). \
+Combined with this ticketing system a FAQ command can be added such that admins can add or remove entries such that you do not get the same question over and over again.
