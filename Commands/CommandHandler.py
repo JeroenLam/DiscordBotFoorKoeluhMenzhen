@@ -5,6 +5,7 @@ from HelloWorldCommand import *
 from SoundBoardCommand import *
 from InspiroCommands import *
 from TTSCommands import *
+from DisconnectCommand import *
 
 class CommandHandler(BaseCommandHandler):
     # On initialisation, define all commands in the command handler
@@ -19,3 +20,4 @@ class CommandHandler(BaseCommandHandler):
         self.addCommand('tts2', Text2Speech2Command())
         self.addCommand('tttt', Translate2TextCommand())
         self.addCommand('ttts', Translate2SpeechCommand())
+        self.addCommand('disconnect', DisconnectCommand())

@@ -45,7 +45,10 @@ Features that are currently being worked on (mainly based on features that where
 - [ ] `<....` Some way to use discord emoticons as commands \
 - [ ] `reddit [hot, new, topH, topD, topW, topM, topY, topA] <subreddit>` Random post from the 25 most recent [catagory] posts. \
 - [ ] `pause` Pauses the audio stream of the bot. \
-- [ ] `stop` Stops the audio stream of the bot. 
+- [ ] `stop` Stops the audio stream of the bot. \
+
+#### DisconnectCommand.py
+`disconnect` Disconnects the bot from its current voice channel.
   
 ## Features (admins)
 Currently the bot supports the following commands:
