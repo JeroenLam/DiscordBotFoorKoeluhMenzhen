@@ -29,6 +29,7 @@ Dependencies: `urllib.request`, `string`, `ast` \
 `quotem` Generates a inspirobot audio quote. 
 
 #### SoundBoardCommand.py
+Dependencies: `discord.py[voice]` \
 If you want to make use of the soundboard command then first add a folder `SoundBoard`. \
 `sb <name | list>` Plays the audio file `<name>`.mp3. Will return a list of all available files when used with list. 
 
