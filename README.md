@@ -51,7 +51,7 @@ Features that are currently being worked on (mainly based on features that where
 Currently the bot supports the following commands:
 
 #### AdminSoundBoardCommands.py
-This is the admin interface that corresponds with the `SoundBoardCommand.py` functions. It supports the following commands:
+This is the admin interface that corresponds with the `SoundBoardCommand.py` functions. It supports the following commands: \
 `sbadd <attached file.mp3>` Adds the `<file>.mp3` to the soundboard folder. \
 `sbrm <fileName_1> ... <fileName_N>` Remove `<fileName_i>.mp3` from the soundboard folder. \
 `sbmv <fileName_old> <fileName_new>` Renames `<fileName_old>.mp3` to `<fileName_new>.mp3`.
