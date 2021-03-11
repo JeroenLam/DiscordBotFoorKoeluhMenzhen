@@ -11,22 +11,31 @@ def download(URL):
     
 # Download image to ./inspiro.jpg
 def getInspiro():
+    # Storing path to Temp folder
+    tempDir = os.path.join(os.path.dirname(__file__), '../Temp/')
+
     html = download('https://inspirobot.me/api?generate=true').read()
     link = str(html).strip('b').strip("'")  # Stripping link
     data = download(link)   # Downloading image
-    with open('Temp/inspiro.jpg','wb') as output:
+    with open(tempDir + 'inspiro.jpg','wb') as output:
         output.write(data.read()) # Write image
         
 def getInspiroXmas():
+    # Storing path to Temp folder
+    tempDir = os.path.join(os.path.dirname(__file__), '../Temp/')
+
     html = download('https://inspirobot.me/api?generate=true&season=xmas').read()
     link = str(html).strip('b').strip("'")  # Stripping link
     data = download(link)   # Downloading image
-    with open('Temp/inspiroXmas.jpg','wb') as output:
+    with open(tempDir + 'inspiroXmas.jpg','wb') as output:
         output.write(data.read()) # Write image
         
         
 # Download mps to ./inspiro.mp3
 def getInspiroMP3():
+    # Storing path to Temp folder
+    tempDir = os.path.join(os.path.dirname(__file__), '../Temp/')
+
     # Downlaod and procces the page to optain the link
     html = download('https://inspirobot.me/api?generateFlow=1&sessionID=7ee2dc54-f836-485e-a4be-abc8f49ed0e6').read()
     link = str(html).strip('b').strip("'")  # Stripping link
@@ -38,5 +47,5 @@ def getInspiroMP3():
         return
     # Download and write data to file    
     data = download(link['mp3'])   # Downloading mp3
-    with open('Temp/inspiro.mp3','wb') as output:
+    with open(tempDir + 'inspiro.mp3','wb') as output:
         output.write(data.read()) # Write mp3

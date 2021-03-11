@@ -1,12 +1,13 @@
-import sys                          # Used to include subdirectories to path
-import discord                      # Include the discord.py[voice] library
-sys.path.append('Support')          # Include support functions to active path
-sys.path.append('Commands')
-from CommandHandler import *        # Add command handler to the path and main file
-sys.path.append('AdminCommands')
-from AdminCommandHandler import *   # Add admin commands handler to the path and main file
 import os                           # Used to load the bot token and prefix character from a .env file
 from dotenv import load_dotenv      # Used to load the bot token and prefix character from a .env file
+import sys                          # Used to include subdirectories to path
+import discord                      # Include the discord.py[voice] library
+sys.path.append(os.path.join(os.path.dirname(__file__), 'Support'))          # Include support functions to active path
+sys.path.append(os.path.join(os.path.dirname(__file__), 'Commands'))
+from CommandHandler import *        # Add command handler to the path and main file
+sys.path.append(os.path.join(os.path.dirname(__file__), 'AdminCommands'))
+from AdminCommandHandler import *   # Add admin commands handler to the path and main file
+
 
 class MyClient(discord.Client):
     # Import prefix and admins from .env

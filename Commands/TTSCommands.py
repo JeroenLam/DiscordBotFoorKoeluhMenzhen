@@ -2,6 +2,7 @@ from BaseCommand import *
 from VoiceCommands import *
 from googletrans import Translator
 from gtts import gTTS
+import os
 
 # Tim to speach, converts text to a dutch voice.
 class Text2SpeechCommand(BaseCommand):
@@ -54,6 +55,9 @@ class Translate2SpeechCommand(BaseCommand):
 
 # Converts text to speach and sends it to the caller
 async def sendTTS(message, text, language='en'):
+    # Storing path to Temp folder
+    tempDir = os.path.join(os.path.dirname(__file__), '../Temp/')
+
     sound = gTTS(text=text, lang=language, slow=False)
-    sound.save("Temp/tts.mp3") 
-    await sendLocalMP3(message, 'Temp/tts.mp3')
+    sound.save(tempDir + 'tts.mp3') 
+    await sendLocalMP3(message, tempDir + 'tts.mp3')
