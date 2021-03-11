@@ -53,7 +53,7 @@ class AdminSBMvCommand(BaseCommand):
                 if name == name_old:
                     os.rename("SoundBoard/" + name, "SoundBoard/" + name_new)
                     bool_found = 1
-                    await message.channel.send('Renamed ' + name_old + ' to ' + name_old)
+                    await message.channel.send('Renamed ' + name_old + ' to ' + name_new)
         if not bool_found:
             await message.channel.send('No file found named: ' + name_old) 
 
