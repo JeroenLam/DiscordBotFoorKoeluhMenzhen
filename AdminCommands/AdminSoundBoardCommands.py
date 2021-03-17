@@ -9,6 +9,7 @@ class AdminSBAddCommand(BaseCommand):
     async def execute(self, message):
         # Storing path to soundboard files
         soundboardDir = os.path.join(os.path.dirname(__file__), '../SoundBoard/')
+        argv = message.content.split(' ')
 
         if len(message.attachments):                                    # If there is an attachment
             url = message.attachments[0].proxy_url                          # retreive url from message
@@ -18,10 +19,10 @@ class AdminSBAddCommand(BaseCommand):
                 with open(soundboardDir + fileName, 'wb') as output:             # Safe the data on disk
                     output.write(data.read())
 
-                print('Start normalizing!')
-                not_normalised = AudioSegment.from_file(soundboardDir + fileName, "mp3")
-                normalised = not_normalised.apply_gain(-20.0 - not_normalised.dBFS)
-                normalised.export(soundboardDir + fileName, format="mp3")
+                if (argv[0] != '-nn'):
+                    not_normalised = AudioSegment.from_file(soundboardDir + fileName, "mp3")
+                    normalised = not_normalised.apply_gain(-20.0 - not_normalised.dBFS)
+                    normalised.export(soundboardDir + fileName, format="mp3")
 
                 await message.channel.send('Added ' + fileName + ' to the soundboard!')
                 print('Added ' + fileName + 'To the soundboard')
@@ -31,7 +32,7 @@ class AdminSBAddCommand(BaseCommand):
             await message.channel.send('No valid attachments!')
 
     def help(self):
-        return '<file.mp3> : Adds the <file>.mp3 to the soundboard folder.'
+        return '<file.mp3> <-nn>: Adds the <file>.mp3 to the soundboard folder. If you use `-nn` then the volume will not be normalised.'
 
 # Remove audio files to the soundboard
 class AdminSBRmCommand(BaseCommand):
