@@ -12,7 +12,7 @@ class SoundBoardCommand(BaseCommand):
         if argv[0] == 'list':
             for root, dirs, files in os.walk(soundboardDir):
                 retMessage = '```\n'
-                for name in files:
+                for name in sorted(files):
                     retMessage += name[:-4] + '\n'
                 retMessage += '```'
             await message.author.send(retMessage) 

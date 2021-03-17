@@ -2,6 +2,7 @@ from BaseCommand import *
 import os
 from VoiceCommands import *
 from getInpiro import download
+from pydub import AudioSegment, effects
 
 # Add a audio file to the soundboard
 class AdminSBAddCommand(BaseCommand):
@@ -16,6 +17,12 @@ class AdminSBAddCommand(BaseCommand):
                 data = download(url)                                            # Download the data
                 with open(soundboardDir + fileName, 'wb') as output:             # Safe the data on disk
                     output.write(data.read())
+
+                print('Start normalizing!')
+                not_normalised = AudioSegment.from_file(soundboardDir + fileName, "mp3")
+                normalised = not_normalised.apply_gain(-20.0 - not_normalised.dBFS)
+                normalised.export(soundboardDir + fileName, format="mp3")
+
                 await message.channel.send('Added ' + fileName + ' to the soundboard!')
                 print('Added ' + fileName + 'To the soundboard')
             else:
