@@ -3,6 +3,7 @@ import os
 from VoiceCommands import *
 from getInpiro import download
 from pydub import AudioSegment, effects
+import shutil
 
 # Add a audio file to the soundboard
 class AdminSBAddCommand(BaseCommand):
@@ -93,7 +94,7 @@ class AdminSBCpCommand(BaseCommand):
         for root, dirs, files in os.walk(soundboardDir):
             for name in files:
                 if name == name_old:
-                    os.copyfile(soundboardDir + name, soundboardDir + name_new)
+                    shutil.copyfile(soundboardDir + name, soundboardDir + name_new)
                     bool_found = 1
                     await message.channel.send('copied ' + name_old + ' to ' + name_new)
         if not bool_found:
