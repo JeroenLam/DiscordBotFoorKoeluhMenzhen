@@ -76,3 +76,28 @@ class AdminSBMvCommand(BaseCommand):
 
     def help(self):
         return '<fileName_old> <fileName_new> : Renames <fileName_old>.mp3 to <fileName_new>.mp3.'
+
+# Rename audio files to the soundboard
+class AdminSBCpCommand(BaseCommand):
+    async def execute(self, message):
+        # Storing path to soundboard files
+        soundboardDir = os.path.join(os.path.dirname(__file__), '../SoundBoard/')
+        argv = message.content.split(' ')
+        if len(argv) != 2:
+            await message.channel.send('Please provide 2 arguments as explained in the help function')
+            return
+        
+        bool_found = 0
+        name_old = argv[0] + '.mp3'
+        name_new = argv[1] + '.mp3'
+        for root, dirs, files in os.walk(soundboardDir):
+            for name in files:
+                if name == name_old:
+                    os.copyfile(soundboardDir + name, soundboardDir + name_new)
+                    bool_found = 1
+                    await message.channel.send('copied ' + name_old + ' to ' + name_new)
+        if not bool_found:
+            await message.channel.send('No file found named: ' + name_old) 
+
+    def help(self):
+        return '<fileName_old> <fileName_new> : Renames <fileName_old>.mp3 to <fileName_new>.mp3.'

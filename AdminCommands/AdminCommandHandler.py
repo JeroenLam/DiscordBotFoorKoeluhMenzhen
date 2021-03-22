@@ -14,3 +14,4 @@ class AdminCommandHandler(BaseCommandHandler):
         self.addCommand('sbadd', AdminSBAddCommand())
         self.addCommand('sbrm', AdminSBRmCommand())
         self.addCommand('sbmv', AdminSBMvCommand())
+        seld.addCommand('sbcp', AdminSBCpCommand())
