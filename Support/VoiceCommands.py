@@ -14,6 +14,16 @@ async def connect2vc(message):
         await message.channel.send('Please enter a voice channel.')
         raise Exception('No voice channel to connect to')
 
+# Connect to the voice channel
+async def connect2vc2(channel):
+    voice_channel = channel
+    voice = channel.guild.voice_client
+    if voice is None:
+        voice = await voice_channel.connect()
+    elif voice.channel != voice_channel:
+        await voice.move_to(voice_channel)
+    return voice
+
 # Connect to the voice channel and send local mp3
 async def sendLocalMP3(message, path):
     try:
@@ -22,8 +32,18 @@ async def sendLocalMP3(message, path):
         return
     if voice.is_playing():
         voice.stop()
-    voice.play(discord.FFmpegPCMAudio(path), after=lambda e: print('    done', e))
+    voice.play(discord.FFmpegPCMAudio(path), after=lambda e: print())
     
+# Connect to the voice channel and send local mp3
+async def sendLocalMP32(channel, path):
+    try:
+        voice = await connect2vc2(channel) 
+    except:
+        return
+    if voice.is_playing():
+        voice.stop()
+    voice.play(discord.FFmpegPCMAudio(path), after=lambda e: print())
+   
 # Stop playing audio
 def stopVoice(message):
     voice = message.channel.guild.voice_client

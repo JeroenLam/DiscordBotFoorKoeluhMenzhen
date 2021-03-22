@@ -7,7 +7,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), 'Commands'))
 from CommandHandler import *        # Add command handler to the path and main file
 sys.path.append(os.path.join(os.path.dirname(__file__), 'AdminCommands'))
 from AdminCommandHandler import *   # Add admin commands handler to the path and main file
-
+from sb_on_user_connect import *    # When a user connect, play soundboard sound
 
 class MyClient(discord.Client):
     # Import prefix and admins from .env
@@ -38,3 +38,17 @@ class MyClient(discord.Client):
             if self.ADMINS.count(str(message.author)):
                 message.content = message.content[len(self.ADMINPREFIX):]       # Remove prefix from the command
                 await self.adminCommandHandler.run(message)                     # Execute command
+
+    async def on_reaction_add(self, reaction, user):
+        if user == self.user:
+            return
+        await reaction.message.add_reaction('🤖')
+
+    async def on_voice_state_update(self, member, before, after):
+        if member == self.user:   # If own message
+            return
+        
+        if after.afk == 1:           # If you move to afk
+            return
+        print('  ' + member.name + ' moved: ' + str(before.channel) + ' => ' + str(after.channel))
+        await sb_on_user_connect(member, after)
