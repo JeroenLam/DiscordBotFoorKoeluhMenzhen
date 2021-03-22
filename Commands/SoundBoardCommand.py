@@ -1,6 +1,7 @@
 from BaseCommand import *
 import os
 from VoiceCommands import *
+import random
 
 class SoundBoardCommand(BaseCommand):
     async def execute(self, message):
@@ -16,6 +17,13 @@ class SoundBoardCommand(BaseCommand):
                     retMessage += name[:-4] + '\n'
                 retMessage += '```'
             await message.author.send(retMessage) 
+        elif argv[0] == 'random':
+            for root, dirs, files in os.walk(soundboardDir):
+                idx = random.randint(0, len(files))
+                try:
+                    await sendLocalMP3(message, soundboardDir + files[idx])
+                except:
+                    return
         else:
             try:
                 await sendLocalMP3(message, soundboardDir + argv[0] + '.mp3')
