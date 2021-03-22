@@ -17,7 +17,10 @@ class SoundBoardCommand(BaseCommand):
                 retMessage += '```'
             await message.author.send(retMessage) 
         else:
-            await sendLocalMP3(message, soundboardDir + argv[0] + '.mp3')
+            try:
+                await sendLocalMP3(message, soundboardDir + argv[0] + '.mp3')
+            except:
+                return
 
     def help(self):
         return '<name | list> : Plays the audio file <name>.mp3. Will return a list of all available files when used with list.'
