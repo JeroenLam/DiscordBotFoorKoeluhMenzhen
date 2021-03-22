@@ -17,6 +17,7 @@ class SoundBoardCommand(BaseCommand):
                     retMessage += name[:-4] + '\n'
                 retMessage += '```'
             await message.author.send(retMessage) 
+            return
         elif argv[0] == 'random':
             for root, dirs, files in os.walk(soundboardDir):
                 idx = random.randint(0, len(files))
