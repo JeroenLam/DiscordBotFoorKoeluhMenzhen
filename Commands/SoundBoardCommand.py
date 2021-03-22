@@ -22,6 +22,7 @@ class SoundBoardCommand(BaseCommand):
             for root, dirs, files in os.walk(soundboardDir):
                 idx = random.randint(0, len(files))
                 try:
+                    await message.channel.send('Playing: ' + files[idx][:-4])
                     await sendLocalMP3(message, soundboardDir + files[idx])
                 except:
                     return
