@@ -51,4 +51,5 @@ class MyClient(discord.Client):
         if after.afk == 1:           # If you move to afk
             return
         print('  ' + member.name + ' moved: ' + str(before.channel) + ' => ' + str(after.channel))
-        await sb_on_user_connect(member, after)
+        if before.channel != after.channel:
+            await sb_on_user_connect(member, after)

@@ -6,4 +6,7 @@ async def sb_on_user_connect(member, after):
     try:
         await sendLocalMP32(after.channel, soundboardDir + member.nick + ".mp3")
     except:
-        return
+        try:
+            await sendLocalMP32(after.channel, soundboardDir + member.name + ".mp3")
+        except:
+            return
