@@ -42,7 +42,7 @@ class MyClient(discord.Client):
     async def on_reaction_add(self, reaction, user):
         if user == self.user:
             return
-        await reaction.message.add_reaction('🤖')
+        #await reaction.message.add_reaction('🤖')
 
     async def on_voice_state_update(self, member, before, after):
         if member == self.user:   # If own message
