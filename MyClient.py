@@ -39,9 +39,9 @@ class MyClient(discord.Client):
                 message.content = message.content[len(self.ADMINPREFIX):]       # Remove prefix from the command
                 await self.adminCommandHandler.run(message)                     # Execute command
 
-    async def on_reaction_add(self, reaction, user):
-        if user == self.user:
-            return
+    #async def on_reaction_add(self, reaction, user):
+    #    if user == self.user:
+    #        return
         #await reaction.message.add_reaction('🤖')
 
     async def on_voice_state_update(self, member, before, after):

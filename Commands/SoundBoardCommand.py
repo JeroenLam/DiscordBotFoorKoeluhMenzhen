@@ -2,6 +2,7 @@ from BaseCommand import *
 import os
 from VoiceCommands import *
 import random
+import shutil
 
 class SoundBoardCommand(BaseCommand):
     async def execute(self, message):
@@ -34,3 +35,27 @@ class SoundBoardCommand(BaseCommand):
 
     def help(self):
         return '<name | list> : Plays the audio file <name>.mp3. Will return a list of all available files when used with list.'
+
+class SoundBoardSetJoinSoundCommand(BaseCommand):
+    async def execute(self, message):
+        # Storing path to soundboard files
+        soundboardDir = os.path.join(os.path.dirname(__file__), '../SoundBoard/')
+        argv = message.content.split(' ')
+        if len(argv) != 1:
+            await message.channel.send('Please provide 1 arguments as explained in the help function')
+            return
+        
+        bool_found = 0
+        name_old = argv[0] + '.mp3'
+        name_new = str(message.author) + '.mp3'
+        for root, dirs, files in os.walk(soundboardDir):
+            for name in files:
+                if name == name_old:
+                    shutil.copyfile(soundboardDir + name, soundboardDir + name_new)
+                    bool_found = 1
+                    await message.channel.send('copied ' + name_old + ' to ' + name_new)
+        if not bool_found:
+            await message.channel.send('No file found named: ' + name_old) 
+
+    def help(self):
+        return '<soundName> : Set the soundName as the users join sound. Note that the user should not have a space in their Discord name!!!'
