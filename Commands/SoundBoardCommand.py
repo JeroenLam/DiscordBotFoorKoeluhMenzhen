@@ -14,8 +14,16 @@ class SoundBoardCommand(BaseCommand):
         if argv[0] == 'list':
             for root, dirs, files in os.walk(soundboardDir):
                 retMessage = '```\n'
+                counter = 0
                 for name in sorted(files):
+                    # Add name to the retMessage without the .mp3
                     retMessage += name[:-4] + '\n'
+                    counter = counter + 1
+                    if counter > 49:
+                        retMessage += '```'
+                        await message.author.send(retMessage)
+                        retMessage = '```\n'
+                        counter = 0
                 retMessage += '```'
             await message.author.send(retMessage) 
             return
