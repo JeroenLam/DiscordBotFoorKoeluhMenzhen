@@ -19,7 +19,7 @@ class SoundBoardCommand(BaseCommand):
                     # Add name to the retMessage without the .mp3
                     retMessage += name[:-4] + '\n'
                     counter = counter + 1
-                    if counter > 49:
+                    if counter > 99:
                         retMessage += '```'
                         await message.author.send(retMessage)
                         retMessage = '```\n'
