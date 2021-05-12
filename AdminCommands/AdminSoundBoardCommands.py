@@ -101,4 +101,4 @@ class AdminSBCpCommand(BaseCommand):
             await message.channel.send('No file found named: ' + name_old) 
 
     def help(self):
-        return '<fileName_old> <fileName_new> : Renames <fileName_old>.mp3 to <fileName_new>.mp3.'
+        return '<fileName_old> <fileName_new> : Copy <fileName_old>.mp3 to <fileName_new>.mp3.'
