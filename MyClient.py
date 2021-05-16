@@ -50,6 +50,15 @@ class MyClient(discord.Client):
         
         if after.afk == 1:           # If you move to afk
             return
+    
         print('  ' + member.name + ' moved: ' + str(before.channel) + ' => ' + str(after.channel))
+
+        # If the user moved away from the channel
         if before.channel != after.channel:
-            await sb_on_user_connect(member, after)
+            # If they moved to another channel on the server
+            if str(after.channel) != 'None':
+                await sb_on_user_connect(member, after)
+            # If the user disconnects from the server
+            else:
+                if len(before.channel.voice_states) == 1:
+                    await before.channel.guild.voice_client.disconnect()
