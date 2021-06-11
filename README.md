@@ -20,7 +20,7 @@ If you wish to add your own functions to the bot, then derive a new command clas
 Currently the bot supports the following commands:
 
 #### HelloWorldCommand.py
-`hw` Send 'Hello World!' back to the user 
+`hw` Send 'Hello World!' back to the user, as well as some general information about the bot.
 
 #### InspiroCommands.py
 Dependencies: `urllib.request`, `string`, `ast` \
@@ -31,7 +31,8 @@ Dependencies: `urllib.request`, `string`, `ast` \
 #### SoundBoardCommand.py
 Dependencies: `discord.py[voice]` \
 If you want to make use of the soundboard command then first add a folder `SoundBoard`. \
-`sb <name | list>` Plays the audio file `<name>`.mp3. Will return a list of all available files when used with list. 
+`sb <name | list | random>` Plays the audio file `<name>.mp3`. Will return a list of all available files when used with list. Will return a random sound when called with random. 
+`sbset <name>` Set `<name>.mp3` as the join sound of the user calling the command.
 
 #### TTSCommands.py
 Dependencies: `googletrans`, `gtts` \
@@ -42,10 +43,6 @@ Dependencies: `googletrans`, `gtts` \
 
 Features that are currently being worked on (mainly based on features that where implemented in the old bot) \
 - [x] `help` Shows a list of all commands and their descriptions based on the data specified in each command object. \
-- [ ] `<....` Some way to use discord emoticons as commands \
-- [ ] `reddit [hot, new, topH, topD, topW, topM, topY, topA] <subreddit>` Random post from the 25 most recent [catagory] posts. \
-- [ ] `pause` Pauses the audio stream of the bot. \
-- [ ] `stop` Stops the audio stream of the bot. \
 
 #### DisconnectCommand.py
 `disconnect` Disconnects the bot from its current voice channel.
