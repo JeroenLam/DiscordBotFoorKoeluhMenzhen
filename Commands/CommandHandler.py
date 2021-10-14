@@ -6,6 +6,7 @@ from SoundBoardCommand import *
 from InspiroCommands import *
 from TTSCommands import *
 from DisconnectCommand import *
+from playStream import *
 
 class CommandHandler(BaseCommandHandler):
     # On initialisation, define all commands in the command handler
@@ -22,3 +23,8 @@ class CommandHandler(BaseCommandHandler):
         self.addCommand('tttt', Translate2TextCommand())
         self.addCommand('ttts', Translate2SpeechCommand())
         self.addCommand('disconnect', DisconnectCommand())
+        self.addCommand('stop', stopAudioCommand())
+        self.addCommand('pause', pauseAudioCommand())
+        self.addCommand('playyturl', playYtUrlCommand())
+        self.addCommand('playstreamurl', playStreamUrlCommand())
+        self.addCommand('playyt', playYtCommand())

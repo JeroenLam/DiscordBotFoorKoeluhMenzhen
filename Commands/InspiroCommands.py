@@ -31,7 +31,7 @@ class InsiroMusicCommand(BaseCommand):
         # Storing path to Temp folder
         tempDir = os.path.join(os.path.dirname(__file__), '../Temp/')
         getInspiroMP3()
-        await sendLocalMP3(message, tempDir + 'inspiro.mp3')
+        await sendAudio(message, tempDir + 'inspiro.mp3')
 
     def help(self):
         return ': Generates a inspirobot audio quote.'

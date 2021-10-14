@@ -32,12 +32,12 @@ class SoundBoardCommand(BaseCommand):
                 idx = random.randint(0, len(files))
                 try:
                     await message.channel.send('Playing: ' + files[idx][:-4])
-                    await sendLocalMP3(message, soundboardDir + files[idx])
+                    await sendAudio(message, soundboardDir + files[idx])
                 except:
                     return
         else:
             try:
-                await sendLocalMP3(message, soundboardDir + argv[0] + '.mp3')
+                await sendAudio(message, soundboardDir + argv[0] + '.mp3')
             except:
                 return
 

@@ -60,4 +60,4 @@ async def sendTTS(message, text, language='en'):
 
     sound = gTTS(text=text, lang=language, slow=False)
     sound.save(tempDir + 'tts.mp3') 
-    await sendLocalMP3(message, tempDir + 'tts.mp3')
+    await sendAudio(message, tempDir + 'tts.mp3')

@@ -1,6 +1,7 @@
-pydub       # Soundboard - normalise volume
-googletrans # TTS - translation
-gtts        # TTS - text to speech
-dotenc      # Load .env to environment
-discord.py  # The discord library
-pafy        # ytplay
+pydub                   # Soundboard - normalise volume
+googletrans             # TTS - translation
+gtts                    # TTS - text to speech
+dotenc                  # Load .env to environment
+discord.py              # The discord library
+pafy                    # ytplay - get audio from youtube url
+youtube-search-python   # ytplay - search youtube via python

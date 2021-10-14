@@ -1,4 +1,4 @@
-import urllib.request, string, ast, os
+import urllib.request, os
 
 # Function to download url data
 def download(URL):
