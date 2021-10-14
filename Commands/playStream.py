@@ -47,6 +47,8 @@ class playYtCommand(BaseCommand):
         videoSearch = VideosSearch(message.content, limit = 1)
         videosResult = await videoSearch.next()
         url = videosResult['result'][0]['link']
+        print(videosResult)
+        print(url)
         try:
             video = pafy.new(url)
             audio = video.getbestaudio()
