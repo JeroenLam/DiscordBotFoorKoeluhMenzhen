@@ -1,0 +1,6 @@
+pydub       # Soundboard - normalise volume
+googletrans # TTS - translation
+gtts        # TTS - text to speech
+dotenc      # Load .env to environment
+discord.py  # The discord library
+pafy        # ytplay

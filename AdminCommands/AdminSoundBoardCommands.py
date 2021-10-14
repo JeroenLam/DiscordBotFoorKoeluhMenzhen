@@ -2,7 +2,7 @@ from BaseCommand import *
 import os
 from VoiceCommands import *
 from getInpiro import download
-from pydub import AudioSegment, effects
+from pydub import AudioSegment
 import shutil
 
 # Add a audio file to the soundboard
