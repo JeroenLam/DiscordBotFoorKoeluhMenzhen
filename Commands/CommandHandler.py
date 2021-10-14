@@ -27,4 +27,4 @@ class CommandHandler(BaseCommandHandler):
         self.addCommand('pause', pauseAudioCommand())
         self.addCommand('playyturl', playYtUrlCommand())
         self.addCommand('playstreamurl', playStreamUrlCommand())
-        self.addCommand('playyt', playYtCommand())
+        self.addCommand('play', playYtCommand())
