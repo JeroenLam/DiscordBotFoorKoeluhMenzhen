@@ -15,3 +15,7 @@ class AdminCommandHandler(BaseCommandHandler):
         self.addCommand('sbrm', AdminSBRmCommand())
         self.addCommand('sbmv', AdminSBMvCommand())
         self.addCommand('sbcp', AdminSBCpCommand())
+        self.addCommand('madd', AdminMusAddCommand())
+        self.addCommand('mrm', AdminMusRmCommand())
+        self.addCommand('mmv', AdminMusMvCommand())
+        self.addCommand('mcp', AdminMusCpCommand())

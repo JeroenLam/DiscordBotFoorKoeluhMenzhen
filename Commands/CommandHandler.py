@@ -14,6 +14,7 @@ class CommandHandler(BaseCommandHandler):
         BaseCommandHandler.__init__(self)
         self.addCommand('hw', HelloWorldCommand())
         self.addCommand('sb', SoundBoardCommand())
+        self.addCommand('m', MusicCommand())
         self.addCommand('sbset', SoundBoardSetJoinSoundCommand())
         self.addCommand('quote', InsiroPictureCommand())
         self.addCommand('quotexmas', InsiroPictureXMasCommand())
