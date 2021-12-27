@@ -1,5 +1,5 @@
-from BaseCommand import *
-from VoiceCommands import *
+from Support.BaseCommand import *
+from Support.VoiceCommands import *
 from googletrans import Translator
 from gtts import gTTS
 import os

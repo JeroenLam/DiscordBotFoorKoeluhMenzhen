@@ -1,4 +1,4 @@
-from BaseCommand import *
+from Support.BaseCommand import *
 
 class DisconnectCommand(BaseCommand):
     async def execute(self, message):

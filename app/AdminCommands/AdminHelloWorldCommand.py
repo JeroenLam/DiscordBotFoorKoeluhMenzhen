@@ -1,4 +1,4 @@
-from BaseCommand import *
+from Support.BaseCommand import *
 
 class AdminHelloWorldCommand(BaseCommand):
     async def execute(self, message):

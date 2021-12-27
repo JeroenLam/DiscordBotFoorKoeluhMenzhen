@@ -1,4 +1,4 @@
-from BaseCommand import *
+from Support.BaseCommand import *
 
 class AdminPingCommand(BaseCommand):
     async def execute(self, message):

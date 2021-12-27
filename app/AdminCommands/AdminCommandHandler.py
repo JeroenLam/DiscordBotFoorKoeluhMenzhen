@@ -1,9 +1,9 @@
-from BaseCommandHandler import *
+from Support.BaseCommandHandler import *
 
 # Importing commands
-from AdminHelloWorldCommand import *
-from AdminPingCommand import *
-from AdminSoundBoardCommands import *
+from AdminCommands.AdminHelloWorldCommand import *
+from AdminCommands.AdminPingCommand import *
+from AdminCommands.AdminSoundBoardCommands import *
 
 class AdminCommandHandler(BaseCommandHandler):
     # On initialisation, define all commands in the command handler
@@ -15,7 +15,3 @@ class AdminCommandHandler(BaseCommandHandler):
         self.addCommand('sbrm', AdminSBRmCommand())
         self.addCommand('sbmv', AdminSBMvCommand())
         self.addCommand('sbcp', AdminSBCpCommand())
-        self.addCommand('madd', AdminMusAddCommand())
-        self.addCommand('mrm', AdminMusRmCommand())
-        self.addCommand('mmv', AdminMusMvCommand())
-        self.addCommand('mcp', AdminMusCpCommand())

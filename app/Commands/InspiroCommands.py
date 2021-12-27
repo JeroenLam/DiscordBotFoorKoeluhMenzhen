@@ -1,6 +1,6 @@
-from BaseCommand import *
-from getInpiro import *
-from VoiceCommands import *
+from Support.BaseCommand import *
+from Support.getInpiro import *
+from Support.VoiceCommands import *
 import os
 
 # Downloads a InspiroBot picture quote and sends it in the text channel

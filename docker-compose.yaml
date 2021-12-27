@@ -1,0 +1,13 @@
+version: "3.3"
+services:
+  discordsoundboard:
+    build: ./
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - DISCORD_TOKEN=${DISCORD_TOKEN}
+      - PREFIX=${PREFIX}
+      - ADMINPREFIX=${ADMINPREFIX}
+      - ADMINS=${ADMINS}
+    volumes:
+      - ./SoundBoard:/usr/src/app/SoundBoard

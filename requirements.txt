@@ -1,6 +1,5 @@
 pydub                   # Soundboard - normalise volume
 googletrans             # TTS - translation
 gtts                    # TTS - text to speech
-discord.py              # The discord library
-pafy                    # ytplay - get audio from youtube url
-youtube-search-python   # ytplay - search youtube via python
+discord.py[voice]       # The discord library
+python-dotenv

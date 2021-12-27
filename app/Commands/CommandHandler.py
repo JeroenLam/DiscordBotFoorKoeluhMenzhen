@@ -1,12 +1,12 @@
-from BaseCommandHandler import *
+from Support.BaseCommandHandler import *
 
 # Importing commands
-from HelloWorldCommand import *
-from SoundBoardCommand import *
-from InspiroCommands import *
-from TTSCommands import *
-from DisconnectCommand import *
-from playStream import *
+from Commands.HelloWorldCommand import *
+from Commands.SoundBoardCommand import *
+from Commands.InspiroCommands import *
+from Commands.TTSCommands import *
+from Commands.DisconnectCommand import *
+from Commands.playStream import *
 
 class CommandHandler(BaseCommandHandler):
     # On initialisation, define all commands in the command handler
@@ -14,7 +14,6 @@ class CommandHandler(BaseCommandHandler):
         BaseCommandHandler.__init__(self)
         self.addCommand('hw', HelloWorldCommand())
         self.addCommand('sb', SoundBoardCommand())
-        self.addCommand('m', MusicCommand())
         self.addCommand('sbset', SoundBoardSetJoinSoundCommand())
         self.addCommand('quote', InsiroPictureCommand())
         self.addCommand('quotexmas', InsiroPictureXMasCommand())
@@ -26,6 +25,3 @@ class CommandHandler(BaseCommandHandler):
         self.addCommand('disconnect', DisconnectCommand())
         self.addCommand('stop', stopAudioCommand())
         self.addCommand('pause', pauseAudioCommand())
-        self.addCommand('playyturl', playYtUrlCommand())
-        self.addCommand('playstreamurl', playStreamUrlCommand())
-        self.addCommand('play', playYtCommand())

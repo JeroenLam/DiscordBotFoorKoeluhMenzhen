@@ -1,5 +1,5 @@
 # Include all other commands
-from BaseCommand import *
+from Support.BaseCommand import *
 
 
 class BaseCommandHandler:
