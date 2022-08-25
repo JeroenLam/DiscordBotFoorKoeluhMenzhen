@@ -11,7 +11,7 @@ async def connect2vsMessage(message):
             await voice.move_to(voice_channel)
         return voice
     else:
-        await message.channel.send('Please enter a voice channel.')
+        #await message.channel.send('Please enter a voice channel.')
         raise Exception('No voice channel to connect to')
 
 # Connect to the voice channel

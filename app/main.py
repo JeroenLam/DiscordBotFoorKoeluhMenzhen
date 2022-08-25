@@ -5,6 +5,7 @@ from MyClient import *              # Import the actual discrod client
 load_dotenv()                       # Load variables from .env into system
 TOKEN = os.getenv('DISCORD_TOKEN')  # Retreive the discord token
 
+
 intents = discord.Intents.default()
 intents.message_content = True
 client = MyClient(intents=intents)
