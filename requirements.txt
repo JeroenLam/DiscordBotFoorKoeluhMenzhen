@@ -2,4 +2,6 @@ pydub                   # Soundboard - normalise volume
 googletrans             # TTS - translation
 gtts                    # TTS - text to speech
 discord.py[voice]       # The discord library
-python-dotenv
+python-dotenv		# Importing env variables
+openai			# For generating chatbot responces
+youtube_dl		# For playing music

@@ -7,6 +7,7 @@ from Commands.InspiroCommands import *
 from Commands.TTSCommands import *
 from Commands.DisconnectCommand import *
 from Commands.playStream import *
+from Commands.chatbotCommand import *
 
 class CommandHandler(BaseCommandHandler):
     # On initialisation, define all commands in the command handler
@@ -25,3 +26,6 @@ class CommandHandler(BaseCommandHandler):
         self.addCommand('disconnect', DisconnectCommand())
         self.addCommand('stop', stopAudioCommand())
         self.addCommand('pause', pauseAudioCommand())
+        self.addCommand('play', playYTCommand())
+        self.addCommand('yt', playYTCommand())
+        self.addCommand('cb', gpt3ChatbotCommand())
